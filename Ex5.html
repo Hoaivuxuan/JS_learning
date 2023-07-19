@@ -13,6 +13,8 @@
         <h1 class="text-primary pb-5">Example 5:</h1>
         <span class="h2">Word: <span id="word"></span></span>
         <br />
+        <span class="h2">Result : <span id="result"></span></span>
+        <br>
         <span class="h2">JSON Result : <span id="json_result"></span></span>
     </div>
 
@@ -28,6 +30,7 @@
                 const middleIndex = Math.floor(length_word / 2);
                 mid_word = `${word[middleIndex]}`;
             }
+            document.getElementById("result").innerHTML = `"${mid_word}"`;
             const result = {
                 mid_word: mid_word
             };

@@ -15,7 +15,9 @@
       <h1 class="text-primary pb-5">Example 3:</h1>
       <span class="h2">Array: <span id="arr"></span></span>
       <br />
-      <span class="h2">JSON Result : <span id="json_result"></span></span>
+      <span class="h2">Result : <span id="result"></span></span>
+    <br>
+    <span class="h2">JSON Result : <span id="json_result"></span></span>
     </div>
 
     <script>
@@ -38,6 +40,7 @@
       };
       const json_result = JSON.stringify(result);
       document.getElementById("arr").innerHTML += JSON.stringify(arr);
+      document.getElementById("result").innerHTML = check_odd_even(arr) % 2 === 0 ? "even" : "odd";
       document.getElementById("json_result").innerHTML = json_result;
     </script>
   </body>

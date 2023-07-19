@@ -13,6 +13,8 @@
         <h1 class="text-primary pb-5">Example 6:</h1>
         <span class="h2">Number: <span id="number"></span></span>
         <br />
+        <span class="h2">Result : <span id="result"></span></span>
+        <br>
         <span class="h2">JSON Result : <span id="json_result"></span></span>
     </div>
 
@@ -33,10 +35,12 @@
                 numArr[i] = temp;
             }
             const result = parseInt(numArr.join(''));
-            return JSON.stringify({ sortedNum: result });
+            return result;
         }
+        const json_result = JSON.stringify({ sortedNum: sortNumber(number) });
         document.getElementById("number").innerHTML = number;
-        document.getElementById("json_result").innerHTML = sortNumber(number);
+        document.getElementById("result").innerHTML = sortNumber(number);
+        document.getElementById("json_result").innerHTML = json_result;
     </script>
 </body>
 

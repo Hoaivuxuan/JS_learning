@@ -15,7 +15,9 @@
       <h1 class="text-primary pb-5">Example 2:</h1>
       <span class="h2">String: <span id="string"></span></span>
       <br />
-      <span class="h2">JSON Result : <span id="json_result"></span></span>
+      <span class="h2">Result : <span id="result"></span></span>
+    <br>
+    <span class="h2">JSON Result : <span id="json_result"></span></span>
     </div>
 
     <script>
@@ -34,6 +36,7 @@
       const result = { upper_str: upper_str };
       const json_result = JSON.stringify(result);
       document.getElementById("string").innerHTML = str;
+      document.getElementById("result").innerHTML = upper_str;
       document.getElementById("json_result").innerHTML = json_result;
     </script>
   </body>

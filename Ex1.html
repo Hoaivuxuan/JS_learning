@@ -15,6 +15,8 @@
     <br />
     <span class="h2">Array 2: <span id="arr2"></span></span>
     <h2 id="test"></h2>
+    <span class="h2">Result : <span id="result"></span></span>
+    <br>
     <span class="h2">JSON Result : <span id="json_result"></span></span>
   </div>
 
@@ -46,6 +48,7 @@
     const jsonResult = JSON.stringify(result);
     document.getElementById("arr1").innerHTML = showArr(arr1);
     document.getElementById("arr2").innerHTML = showArr(arr2);
+    document.getElementById("result").innerHTML = `Same Values: [${same_values}]` + " | " + `Other Values: [${other_values}]`;
     document.getElementById("json_result").innerHTML = jsonResult;
   </script>
 </body>

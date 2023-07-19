@@ -11,16 +11,29 @@
 <body>
     <div class="container p-5">
         <h1 class="text-primary pb-5">Example 9:</h1>
-        <span class="h2">String: <span id="str"></span></span>
+        <span class="h2">Case 1: <span id="case_1"></span></span>
         <br />
         <span class="h2">Result : <span id="result"></span></span>
-        <br>
-        <span class="h2">JSON Result : <span id="json_result"></span></span>
     </div>
 
     <script>
-        const str = "aba";
-        document.getElementById("str").innerHTML = `"${str}"`;
+        const case_1 = "ABA aba";
+        const case_2 = "aba";
+        const countCharacters = (str) => {
+            let box_char = {};
+
+            for (const char of str) {
+                if (char in box_char) {
+                    box_char[char]++;
+                } else {
+                    box_char[char] = 1;
+                }
+            }
+
+            return '{' + Object.entries(box_char).map(([key, value]) => `'${key}': ${value}`).join(', ') + '}';
+        }
+        document.getElementById("case_1").innerHTML = `"${case_1}"`;
+        document.getElementById("result").innerHTML = countCharacters(case_1);
     </script>
 </body>
 
