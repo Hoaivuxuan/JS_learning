@@ -21,22 +21,32 @@
     <script>
         const word = "test";
         const getMiddle = (word) => {
+            // chiều dài của chuỗi 
             const length_word = word.length;
+            // tạo chuỗi lưu trữ phần tử ở giữa
             let mid_word = "";
+            // xác định phần tử giữa
             if (length_word !== 0 && length_word % 2 == 0) {
-                const middleIndex = Math.floor((length_word - 1) / 2); // floor() : lay phan nguyen
+                // trả về vị trí 
+                const middleIndex = Math.floor((length_word - 1) / 2);
+                // trả về phần tử giữa chuỗi có tổng số phần tử là số chẵn
                 mid_word = `${word[middleIndex]}${word[middleIndex + 1]}`;
             } else if (length_word % 2 == 1) {
+                // trả về vị trí 
                 const middleIndex = Math.floor(length_word / 2);
+                // trả về phần tử giữa chuỗi có tổng số phần tử là số lẻ
                 mid_word = `${word[middleIndex]}`;
             }
             document.getElementById("result").innerHTML = `"${mid_word}"`;
+            // tạo đối tượng lưu trữ 
             const result = {
                 mid_word: mid_word
             };
+            // chuyển sang dạng JSON
             const json_result = JSON.stringify(result);
             return json_result;
         };
+        // in ra kết quả
         document.getElementById("word").innerHTML = word;
         document.getElementById("json_result").innerHTML = getMiddle(word);
     </script>

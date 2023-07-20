@@ -23,17 +23,6 @@
   <script>
     const arr1 = [1, "1", 2, "a", "b"];
     const arr2 = [1, "a", "c", "1", "2"];
-    const showArr = (arr) => {
-      let box = [];
-      for (let x of arr) {
-        if (typeof x === "number") {
-          box.push(x);
-        } else if (typeof x === "string") {
-          box.push(`"${x}"`);
-        }
-      }
-      return `[${box.join(", ")}]`;
-    };
     // gtri giong nhau
     const same_values = arr1.filter((value) => arr2.includes(value));
     // gtri khac nhau
@@ -45,9 +34,11 @@
       same_values: same_values,
       other_values: other_values
     };
+    // chuyển đổi sang dạng JSON
     const jsonResult = JSON.stringify(result);
-    document.getElementById("arr1").innerHTML = showArr(arr1);
-    document.getElementById("arr2").innerHTML = showArr(arr2);
+    // in ra màn hình két quả
+    document.getElementById("arr1").innerHTML = `[${arr1}]`;
+    document.getElementById("arr2").innerHTML = `[${arr2}]`;
     document.getElementById("result").innerHTML = `Same Values: ${same_values}` + " | " + `Other Values: ${other_values}`;
     document.getElementById("json_result").innerHTML = jsonResult;
   </script>

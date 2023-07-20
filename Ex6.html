@@ -19,25 +19,33 @@
     </div>
 
     <script>
+        // số ban đầu cần sắp xếp
         const number = 123456789;
+        // hàm thực hiện sắp xếp
         const sortNumber = (num) => {
+            // chuyển số thành chuỗi
             const numStr = num.toString();
+            // chuyển chuỗi thành mảng chứa các số 
             const numArr = numStr.split('');
-            for (var i = 0; i < numArr.length; i++) {
-                var min = i;
-                for (var j = i; j < numArr.length; j++) {
-                    if (numArr[min] < numArr[j]) {
-                        min = j;
+            // thuật toán sắp xếp chọn
+            for (var index_in_numArr = 0; index_in_numArr < numArr.length; index_in_numArr++) {
+                var min = index_in_numArr;
+                for (var temp_of_index = index_in_numArr; temp_of_index < numArr.length; temp_of_index++) {
+                    if (numArr[min] < numArr[temp_of_index]) {
+                        min = temp_of_index;
                     }
                 }
                 const temp = numArr[min];
-                numArr[min] = numArr[i];
-                numArr[i] = temp;
+                numArr[min] = numArr[index_in_numArr];
+                numArr[index_in_numArr] = temp;
             }
+            // chuyển kết quả từ mảng đã được sắp xếp thành số
             const result = parseInt(numArr.join(''));
             return result;
         }
+        // chuyển kết quả về dạng JSOn
         const json_result = JSON.stringify({ sortedNum: sortNumber(number) });
+        // in ra kết quả
         document.getElementById("number").innerHTML = number;
         document.getElementById("result").innerHTML = sortNumber(number);
         document.getElementById("json_result").innerHTML = json_result;

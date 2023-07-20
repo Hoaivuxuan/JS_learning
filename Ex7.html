@@ -21,22 +21,26 @@
     <script>
         const case_1 = "AAAABBBCCDAABBB";
         const case_2 = "ABBCcAD";
-        const case_3 = [1, 'a ', 'a', 'a', 2, 2, 3, 3];
+        const case_3 = [1, 'a ', 'a', 'a', '2', 2, 3, 3];
         const case_4 = [1, 2, 2, 3, 3];
         function unique_in_order(input) {
+            // tạo mảng lưu trữ
             let result = [];
 
             for (let i = 0; i < input.length; i++) {
+                // nếu phần tử thứ i không giống phần tử thứ i+1 thì đẩy phần tử đó vào mảng
                 if (input[i] !== input[i + 1]) {
                     result.push(input[i]);
                 }
             }
+            // trả về kết quả
             return `[${result}]`;
         }
-        json_result = JSON.stringify({ json_result: unique_in_order(case_1) });
-
-        document.getElementById("input").innerHTML = case_1;
-        document.getElementById("result").innerHTML = unique_in_order(case_1);
+        // chuyển kết quả về dạng JSOn
+        json_result = JSON.stringify({ json_result: unique_in_order(case_3) });
+        // in kết quả ra màn hình
+        document.getElementById("input").innerHTML = case_3;
+        document.getElementById("result").innerHTML = unique_in_order(case_3);
         document.getElementById("json_result").innerHTML = json_result;
     </script>
 </body>

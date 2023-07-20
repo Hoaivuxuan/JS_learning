@@ -19,22 +19,31 @@
   </div>
 
   <script>
-    const str = "tên tôi là";
+    const case_1 = "   tên tôi là   ";
+    const case_2 = "tên tôi là";
+    // hàm thực hiện biết hoa chữ cái đầu của mỗi từ
     function upperCase(str) {
       if (str.length === 0) {
         return str;
       }
+      // tách chuỗi thành mảng các từ
       const words = str.split(" ");
-      for (let i = 0; i < words.length; i++) {
-        words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1); // slice(x) lay phan tu từ x tới hết
+      // duyệt qua các phần tử (sử dụng charAt(0) để lấy ký tự đầu tiên và slice(1) để lấy phần còn lại của từ)
+      for (let index = 0; index < words.length; index++) {
+        words[index] = words[index].charAt(0).toUpperCase() + words[index].slice(1);
       }
+      // chèn khoảng trắng vào giữa các từ là trả về
       return words.join(" ");
     }
-    const upper_str = upperCase(str);
+    // gọi hàm
+    const upper_str = upperCase(case_1);
+    // tạo đối tượng upper_str lưu trữ kết quả
     const result = { upper_str: upper_str };
+    // chuyển đổi sang dạng JSON
     const json_result = JSON.stringify(result);
-    document.getElementById("string").innerHTML = str;
-    document.getElementById("result").innerHTML = upper_str;
+    // in ra màn hình kết quả
+    document.getElementById("string").innerHTML = `"${case_1}"`;
+    document.getElementById("result").innerHTML = `"${upper_str}"`;
     document.getElementById("json_result").innerHTML = json_result;
   </script>
 </body>

@@ -22,28 +22,39 @@
         let case_1 = [2, 4, 0, 100, 4, 11, 2602, 36];
         let case_2 = [160, 3, 1719, 19, 11, 13, -21];
         const except_outlier = (arr) => {
+            // tạo giá trị để đếm các phần tử lẻ và chẵn
             let odd = 0;
             let even = 0;
-            for (let i in arr) {
-                if (arr[i] % 2 == 0) {
-                    arr[i] += "even"
+            // duyệt các phần tử trong ar
+            for (let index_of_arr in arr) {
+                // nếu phần tử chia hết cho 2 thì cộng thêm chuỗi "even"
+                if (arr[index_of_arr] % 2 == 0) {
+                    arr[index_of_arr] += "even"
                     even++;
                 }
+                // nếu phần tử không chia hết cho 2 thì cộng thêm chuỗi "odd"
                 else {
-                    arr[i] += "odd"
+                    arr[index_of_arr] += "odd"
                     odd++
                 }
             }
-            let x;
+            // tạo biến lưu trữ phần tử ngoại lai
+            let except_element;
+            // kiểm tra số lượng phần tử chẵn hay lẻ = 1?
             if (odd == 1) {
-                x = arr.find(s => s.includes("odd"))
-                return x.split("odd")[0];
+                // tìm kiếm chuỗi "odd" có trong phần tử đó không
+                except_element = arr.find(s => s.includes("odd"))
+                // trả về phần tử đã loại bỏ chuỗi
+                return except_element.split("odd")[0];
             }
             else {
-                x = arr.find(s => s.includes("even"))
-                return x.split("even")[0];
+                // tìm kiếm chuỗi "even" có trong phần tử đó không
+                except_element = arr.find(s => s.includes("even"))
+                // trả về phần tử đã loại bỏ chuỗi
+                return except_element.split("even")[0];
             }
         }
+        // in ra kết quả
         document.getElementById("arr").innerHTML = `[${case_2}]`;
         document.getElementById("result").innerHTML = except_outlier(case_2);
         json_result = JSON.stringify({ json_result: except_outlier(case_2) });

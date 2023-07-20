@@ -23,31 +23,41 @@
       b = 2,
       c = 3,
       d = 12;
-    const lots_of_math = (a,b,c,d) => {
+    const lots_of_math = (a, b, c, d) => {
+      // tính tổng a và b
       const first = a + b;
+      // tính hiệu c và d
       const second = c - d;
+      // tính tích giá trị đầu và giá trị thứ 2 => giá trị thứ 3
       const third = first * second;
+      // tính giá trị cuối cùng
       let finallyResult;
       if (a !== 0) {
+        // trả về modulo của giá trị 3 và a
         finallyResult = third % a;
       } else {
+        // trả về undefined nếu a = 0
         finallyResult = "undefined";
       }
+      // in giá trị a,b,c,d ban đầu
       document.getElementById("result").innerHTML = `first= ${first}, second= ${second}, third= ${third}, finally= ${finallyResult}`;
+      // tạo đối tượng result lưu kết quả
       const result = {
         first: first,
         second: second,
         third: third,
         finally: finallyResult,
       };
+      // chuyển đổi sang dạng JSOn
       const json_result = JSON.stringify(result);
+      // trả về kết quả
       return json_result;
     };
-
+    // in kết quả ra màn hình
     document.getElementById(
       "variable"
     ).innerHTML = `a = ${a}, b = ${b}, c = ${c}, d = ${d}, `;
-    document.getElementById("json_result").innerHTML = lots_of_math(a,b,c,d);
+    document.getElementById("json_result").innerHTML = lots_of_math(a, b, c, d);
   </script>
 </body>
 
