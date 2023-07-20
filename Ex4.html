@@ -23,7 +23,7 @@
       b = 2,
       c = 3,
       d = 12;
-    const lots_of_math = () => {
+    const lots_of_math = (a,b,c,d) => {
       const first = a + b;
       const second = c - d;
       const third = first * second;
@@ -47,7 +47,7 @@
     document.getElementById(
       "variable"
     ).innerHTML = `a = ${a}, b = ${b}, c = ${c}, d = ${d}, `;
-    document.getElementById("json_result").innerHTML = lots_of_math();
+    document.getElementById("json_result").innerHTML = lots_of_math(a,b,c,d);
   </script>
 </body>
 
