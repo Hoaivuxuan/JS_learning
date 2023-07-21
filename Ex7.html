@@ -11,17 +11,18 @@
 <body>
     <div class="container p-5">
         <h1 class="text-primary pb-5">Example 7:</h1>
-        <span class="h2">Input: <span id="input"></span></span>
-        <br />
-        <span class="h2">Result : <span id="result"></span></span>
-        <br>
-        <span class="h2">JSON Result : <span id="json_result"></span></span>
+        <span class="h2">Input: <pre id="input"></pre>
+        </span>
+        <span class="h2">Result : <pre id="result"></pre>
+        </span>
+        <span class="h2">JSON Result : <pre id="json_result"></pre>
+        </span>
     </div>
 
     <script>
-        const case_1 = "AAAABBBCCDAABBB";
+        const case_1 = "AA    AABBBCCDAABBB";
         const case_2 = "ABBCcAD";
-        const case_3 = [1, 'a ', 'a', 'a', '2', 2, 3, 3];
+        const case_3 = [1, 'a ', 'a', 'a', '   ', '2', 2, 3, 3, ' '];
         const case_4 = [1, 2, 2, 3, 3];
         function unique_in_order(input) {
             // tạo mảng lưu trữ

@@ -11,30 +11,43 @@
 <body>
     <div class="container p-5">
         <h1 class="text-primary pb-5">Example 9:</h1>
-        <span class="h2">Case 1: <span id="case_1"></span></span>
-        <br />
-        <span class="h2">Result : <span id="result"></span></span>
+        <span class="h2">Case 1: <pre id="case_1"></pre>
+        </span>
+
+        <span class="h2">Result : <pre id="result"></pre>
+        </span>
     </div>
 
     <script>
-        const case_1 = "ABA aba";
+        const case_1 = "ê    eABA aba ^#%$&^%#*";
         const case_2 = "aba";
         const countCharacters = (str) => {
             // tạo object lưu trữ ký tự và số lượng
             let box_char = {};
             // duyệt các phần tử và đếm
             for (const char of str) {
-                if (char in box_char) {
-                    box_char[char]++;
+                // loại bỏ dấu cách
+                if (char == " ") {
+                    continue;
                 } else {
-                    box_char[char] = 1;
+                    if (char in box_char) {
+                        box_char[char]++;
+                    } else {
+                        box_char[char] = 1;
+                    }
                 }
             }
             // trả về kết quả dạng chuẩn Object
-            return '{' + Object.entries(box_char).map(([key, value]) => `'${key}': ${value}`).join(', ') + '}';
-        }
+            return (
+                "{" +
+                Object.entries(box_char)
+                    .map(([key, value]) => `'${key}': ${value}`)
+                    .join(", ") +
+                "}"
+            );
+        };
         // in kết quả ra màn hình
-        document.getElementById("case_1").innerHTML = `"${case_1}"`;
+        document.getElementById("case_1").innerText = case_1;
         document.getElementById("result").innerHTML = countCharacters(case_1);
     </script>
 </body>
