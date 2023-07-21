@@ -11,11 +11,14 @@
 <body>
   <div class="container p-5">
     <h1 class="text-primary pb-5">Example 2:</h1>
-    <span class="h2">String: <pre id="string"></pre>
+    <span class="h2">String:
+      <pre id="string"></pre>
     </span>
-    <span class="h2">Result : <pre id="result"></pre>
+    <span class="h2">Result :
+      <pre id="result"></pre>
     </span>
-    <span class="h2">JSON Result : <pre id="json_result"></pre>
+    <span class="h2">JSON Result :
+      <pre id="json_result"></pre>
     </span>
   </div>
 
@@ -27,8 +30,12 @@
       if (str.length === 0) {
         return str;
       }
+      // loại bỏ khoảng trắng trước từ đầu tiên và sau từ cuối cùng
+      const remove_space_str = str.trim();
+      console.log(remove_space_str);
       // tách chuỗi thành mảng các từ
-      const words = str.split(" ");
+      const words = remove_space_str.split(/\s+/g);
+      console.log(words);
       // duyệt qua các phần tử (sử dụng charAt(0) để lấy ký tự đầu tiên và slice(1) để lấy phần còn lại của từ)
       for (let index = 0; index < words.length; index++) {
         words[index] = words[index].charAt(0).toUpperCase() + words[index].slice(1);
@@ -36,7 +43,7 @@
       // chèn khoảng trắng vào giữa các từ là trả về
       return words.join(" ");
     }
-    // gọi hàm
+    // kết quả
     const upper_str = upperCase(case_1);
     // tạo đối tượng upper_str lưu trữ kết quả
     const result = { upper_str: upper_str };

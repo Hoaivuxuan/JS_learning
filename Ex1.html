@@ -11,26 +11,52 @@
 <body>
   <div class="container p-5">
     <h1 class="text-primary pb-5">Example 1:</h1>
-    <span class="h2">Array 1: <pre id="arr1"></pre>
+    <span class="h2">Array 1:
+      <pre id="arr1"></pre>
     </span>
-    <span class="h2">Array 2: <pre id="arr2"></pre>
+    <span class="h2">Array 2:
+      <pre id="arr2"></pre>
     </span>
     <h2 id="test"></h2>
-    <span class="h2">Result : <pre id="result"></pre>
+    <span class="h2">Result :
+      <pre id="result"></pre>
     </span>
-    <span class="h2">JSON Result : <pre id="json_result"></pre>
+    <span class="h2">JSON Result :
+      <pre id="json_result"></pre>
     </span>
   </div>
 
   <script>
-    const arr1 = [1, "1", 2, "a", "b", "   "];
-    const arr2 = [1, "a", "c", "1", "2", " "];
+    const arr1 = [1, "1", 2, "a", "b", "     ", "ab   ", "  a  "];
+    const arr2 = [1, "a", "c", "1", "2", " ", "ab", " a "];
+    // hàm hiển thị mảng cho đẹp thôi chứ chả có gì hot
+    const showArr = (arr) => {
+      let box = [];
+      for (let x of arr) {
+        if (typeof x === "number") {
+          box.push(x);
+        } else if (typeof x === "string") {
+          box.push(`"${x}"`);
+        }
+      }
+      return `[${box.join(", ")}]`;
+    };
+    //
+    const function_remove_space = (arr) => {
+      return arr.map((value) => {
+        if (typeof value === "number") {
+          return value;
+        } else if (typeof value === "string") {
+          return value.replace(/\s+/g, " "); // chuyển đổi nhiều dấu cách cạnh nhau thành 1 dấu cách
+        }
+      });
+    }
     // gtri giong nhau
-    const same_values = arr1.filter((value) => arr2.includes(value));
+    const same_values = function_remove_space(arr1).filter((value) => function_remove_space(arr2).includes(value));
     // gtri khac nhau
     const other_values = [
-      ...arr1.filter((value) => !arr2.includes(value)),
-      ...arr2.filter((value) => !arr1.includes(value)),
+      ...function_remove_space(arr1).filter((value) => !function_remove_space(arr2).includes(value)),
+      ...function_remove_space(arr2).filter((value) => !function_remove_space(arr1).includes(value)),
     ];
     const result = {
       same_values: same_values,
@@ -39,9 +65,9 @@
     // chuyển đổi sang dạng JSON
     const jsonResult = JSON.stringify(result);
     // in ra màn hình két quả
-    document.getElementById("arr1").innerHTML = `[${arr1}]`;
-    document.getElementById("arr2").innerHTML = `[${arr2}]`;
-    document.getElementById("result").innerHTML = `Same Values: ${same_values}` + " | " + `Other Values: ${other_values}`;
+    document.getElementById("arr1").innerHTML = `${showArr(arr1)}`;
+    document.getElementById("arr2").innerHTML = `${showArr(arr2)}`;
+    document.getElementById("result").innerHTML = `Same Values: ${showArr(same_values)}` + " | " + `Other Values: ${showArr(other_values)}`;
     document.getElementById("json_result").innerHTML = jsonResult;
   </script>
 </body>

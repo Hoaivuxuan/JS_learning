@@ -11,10 +11,12 @@
 <body>
     <div class="container p-5">
         <h1 class="text-primary pb-5">Example 9:</h1>
-        <span class="h2">Case 1: <pre id="case_1"></pre>
+        <span class="h2">Case 1:
+            <pre id="case_1"></pre>
         </span>
 
-        <span class="h2">Result : <pre id="result"></pre>
+        <span class="h2">Result :
+            <pre id="result"></pre>
         </span>
     </div>
 
@@ -47,7 +49,7 @@
             );
         };
         // in kết quả ra màn hình
-        document.getElementById("case_1").innerText = case_1;
+        document.getElementById("case_1").innerText = `"${case_1}"`;
         document.getElementById("result").innerHTML = countCharacters(case_1);
     </script>
 </body>
